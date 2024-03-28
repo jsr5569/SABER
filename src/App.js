@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   <ItemCard />
+  
 }
 
 export default App;
