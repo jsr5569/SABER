@@ -10,11 +10,6 @@
       "StackName": "amplify-movieswen-dev-163606",
       "StackId": "arn:aws:cloudformation:us-east-1:590184071980:stack/amplify-movieswen-dev-163606/ceab47a0-ed42-11ee-b859-0e8553babb77",
       "AmplifyAppId": "d31n1jxrsjyn37"
-    },
-    "categories": {
-      "function": {
-        "lambdapract": {}
-      }
     }
   }
 }
