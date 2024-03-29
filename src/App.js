@@ -2,8 +2,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Collection } from '@aws-amplify/ui-react';
-import GameCard from './gamecard';
-import GamePage from './gamepage'; // Assuming this is where your individual game pages are located
+import GameCard from './gamecard.js';
+import GamePage from './gamepage.js'; // Assuming this is where your individual game pages are located
 import './App.css'
 
 function App() {
