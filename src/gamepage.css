@@ -1,0 +1,42 @@
+/* Add these styles to your existing CSS file */
+
+.game-page {
+    padding: 20px;
+  }
+  
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-link {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .game-details {
+    display: flex;
+  }
+  
+  .game-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .description {
+    flex: 1;
+  }
+  
+  .buy-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
