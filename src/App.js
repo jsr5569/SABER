@@ -16,8 +16,24 @@ Amplify.configure(config);
 
 
 const client = generateClient();
-
-
+/*
+const newTodo = await client.graphql({
+  query: createTodo,
+  variables: {
+      input: {
+  "name": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
+  "description": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
+  "img_link": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
+  "before_pos": 0.7056629657745361,
+  "before_neutral": 0.032207898795604706,
+  "before_negative": 0.032207898795604706,
+  "metactritic": 79.0
+}
+  }
+});
+*/
+const result = await client.graphql({ query: listTodos });
+console.log(result);
 
 
 //const result = await client.graphql({ query: listTodos });
@@ -43,8 +59,10 @@ function App() {
   }
   const games = data.map(item => ({
     title: item.name, // Assuming name is the field in DynamoDB containing the game name
-    src: item.description, // You can use a default image or item.image if you have image data in your DynamoDB
-    link: `/${item.id}`, // You can use item.id or any other unique identifier for the link
+    src: item.img_link, // You can use a default image or item.image if you have image data in your DynamoDB
+    link: `/${item.name}`, // You can use item.id or any other unique identifier for the link
+    neutral: item.before_neutral,
+    description: item.description
   }));
 
   /*[

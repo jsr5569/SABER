@@ -24,9 +24,11 @@ export const listTodos = /* GraphQL */ `
         id
         name
         description
-        createdAt
-        updatedAt
-        __typename
+        img_link
+        before_pos
+        before_neutral
+        before_negative
+        metactritic
       }
       nextToken
       __typename
