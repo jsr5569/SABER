@@ -1,10 +1,22 @@
 // App.js
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Collection } from '@aws-amplify/ui-react';
 import GameCard from './gamecard.js';
 import GamePage from './gamepage.js'; // Assuming this is where your individual game pages are located
 import './App.css'
+import { DataStore } from '@aws-amplify/datastore';
+import React, { useState, useEffect } from 'react';
+import { getTodo, listTodos } from './graphql/queries.js';
+//import { get, API, graphqlOperation} from 'aws-amplify/api';
+import { API, graphqlOperation } from 'aws-amplify';
+
+//import { API, graphqlOperation } from 'aws-amplify';
+
+
+
+
+
 
 function App() {
   const games = [
@@ -25,6 +37,22 @@ function App() {
     },
     // Other game objects
   ];
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  async function fetchTodos() {
+    try {
+      const todoData = await API.graphql(graphqlOperation(listTodos));
+      setTodos(todoData.data.listTodos.items);
+    } catch (error) {
+      console.log('Error fetching todos: ', error);
+    }
+  }
+
+
 
   return (
     <Router>
