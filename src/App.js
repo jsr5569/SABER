@@ -7,17 +7,16 @@ import GamePage from './gamepage.js'; // Assuming this is where your individual 
 import './App.css'
 import { DataStore } from '@aws-amplify/datastore';
 import React, { useState, useEffect } from 'react';
-import { getTodo, listTodos } from './graphql/queries.js';
-//import { get, API, graphqlOperation} from 'aws-amplify/api';
-import { API, graphqlOperation } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';
+import { createTodo, updateTodo, deleteTodo } from './graphql/mutations';
+import { listTodos } from './graphql/queries';
+
+// Import generateClient instead of API and graphqlOperation
+
+
+
 
 //import { API, graphqlOperation } from 'aws-amplify';
-
-
-
-
-
-
 function App() {
   const games = [
     {
@@ -37,20 +36,6 @@ function App() {
     },
     // Other game objects
   ];
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
-  async function fetchTodos() {
-    try {
-      const todoData = await API.graphql(graphqlOperation(listTodos));
-      setTodos(todoData.data.listTodos.items);
-    } catch (error) {
-      console.log('Error fetching todos: ', error);
-    }
-  }
 
 
 
