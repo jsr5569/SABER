@@ -62,6 +62,8 @@ function App() {
     src: item.img_link, // You can use a default image or item.image if you have image data in your DynamoDB
     link: `/${item.name}`, // You can use item.id or any other unique identifier for the link
     neutral: item.before_neutral,
+    positive: item.before_pos,
+    negative: item.before_negative,
     description: item.description
   }));
 
