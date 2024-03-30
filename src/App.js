@@ -7,18 +7,48 @@ import GamePage from './gamepage.js'; // Assuming this is where your individual 
 import './App.css'
 import { DataStore } from '@aws-amplify/datastore';
 import React, { useState, useEffect } from 'react';
+import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
+import config from './amplifyconfiguration.json';
 import { createTodo, updateTodo, deleteTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
+Amplify.configure(config);
 
-// Import generateClient instead of API and graphqlOperation
+
+const client = generateClient();
+
+
+
+
+//const result = await client.graphql({ query: listTodos });
+//console.log(result);
 
 
 
 
 //import { API, graphqlOperation } from 'aws-amplify';
 function App() {
-  const games = [
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  async function fetchData() {
+    try {
+      const result = await client.graphql({ query: listTodos });
+      setData(result.data.listTodos.items);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  const games = data.map(item => ({
+    title: item.name, // Assuming name is the field in DynamoDB containing the game name
+    src: item.description, // You can use a default image or item.image if you have image data in your DynamoDB
+    link: `/${item.id}`, // You can use item.id or any other unique identifier for the link
+  }));
+
+  /*[
+
     {
       title: 'Call of Duty',
       src: 'https://upload.wikimedia.org/wikipedia/en/b/b1/Black_Ops_3.jpg',
@@ -36,7 +66,7 @@ function App() {
     },
     // Other game objects
   ];
-
+*/
 
 
   return (
