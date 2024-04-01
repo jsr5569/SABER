@@ -1,8 +1,8 @@
-// GamePage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './gamepage.css'
 import { Chart } from "react-google-charts";
+import Rating from './rating';
 
 function GamePage({ game }) {
   
@@ -16,16 +16,27 @@ function GamePage({ game }) {
     title: "Sentiment Analysis",
     backgroundColor: 'transparent',
     titleTextStyle: {
-      color: 'white', // Set title text color to red
-      fontSize: 20 // Set title font size
+      color: 'white', 
+      fontSize: 20 
     },
     legendTextStyle: {
-      color: 'white', // Set legend text color to blue
-      fontSize: 14 // Set legend font size
+      color: 'white', 
+      fontSize: 14 
     },
     height:500,
-    width:700
+    width:600
   };
+  console.log(game)
+ 
+  const getColor = (rating) => {
+    if (rating >= 80) {
+      return 'green'; 
+    } else if (rating >= 60) {
+      return 'orange'; 
+    } else {
+      return 'red'; 
+    }
+  }
   
   return (
     <div className="game-page">
@@ -51,6 +62,9 @@ function GamePage({ game }) {
             height={"400px"}
           />
         </div>
+        <div className="rating-container">
+        <Rating score={game.metacritic}/>
+      </div>
       </div>
     </div>
   );

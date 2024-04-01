@@ -28,7 +28,7 @@ export const listTodos = /* GraphQL */ `
         before_pos
         before_neutral
         before_negative
-        metactritic
+        metacritic
       }
       nextToken
       __typename

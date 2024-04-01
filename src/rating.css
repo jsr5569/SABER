@@ -1,0 +1,36 @@
+.rating-square {
+    display: inline-block;
+    width: 200px; 
+    height: 200px; 
+    text-align: center;
+    line-height: 50px; 
+    font-weight: bold;
+    font-size: 100px;
+    border-radius: 5px;
+    text-align: center; 
+    top: 100px;
+  }
+  
+  .score-green {
+    background-color: #4caf50; 
+    color: white;
+  }
+  
+  .score-yellow {
+    background-color: #ffeb3b; 
+    color: white;
+  }
+  
+  .score-red {
+    background-color: #f44336; 
+    color: white;
+  }
+  .score {
+    /* Adjust the position of the text */
+    position: relative;
+    top: 65px; /* Adjust the vertical position */
+    left: 0px; /* Adjust the horizontal position */
+  }
+  .rating-label{
+    color: white;
+  }

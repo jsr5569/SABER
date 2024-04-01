@@ -8,6 +8,6 @@ type Todo @model @auth(rules: [{allow: public}]) {
   before_neutral: Float
   before_negative: Float
   after_negative: Float
-  metactritic: Float
+  metacritic: Float
 }
  

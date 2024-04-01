@@ -1,9 +1,7 @@
-// App.js
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Collection } from '@aws-amplify/ui-react';
 import GameCard from './gamecard.js';
-import GamePage from './gamepage.js'; // Assuming this is where your individual game pages are located
+import GamePage from './gamepage.js'; 
 import './App.css'
 import { DataStore } from '@aws-amplify/datastore';
 import React, { useState, useEffect } from 'react';
@@ -21,13 +19,13 @@ const newTodo = await client.graphql({
   query: createTodo,
   variables: {
       input: {
-  "name": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
-  "description": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
-  "img_link": "https://assets-prd.ignimgs.com/2022/03/09/planetzoo-1646788240786.jpg",
+  "name": "Ghosts of Tsushima",
+  "description": "Uncover the hidden wonders of Tsushima in this open-world action adventure from Sucker Punch Productions and PlayStation Studios, available for PS5 and PS4.\nForge a new path and wage an unconventional war for the freedom of Tsushima. Challenge opponents with your katana, master the bow to eliminate distant threats, develop stealth tactics to ambush enemies and explore a new story on Iki Island.",
+  "img_link": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/b3iB2zf2xHj9shC0XDTULxND.png",
   "before_pos": 0.7056629657745361,
   "before_neutral": 0.032207898795604706,
   "before_negative": 0.032207898795604706,
-  "metactritic": 79.0
+  "metacritic": 83.0
 }
   }
 });
@@ -58,13 +56,14 @@ function App() {
     }
   }
   const games = data.map(item => ({
-    title: item.name, // Assuming name is the field in DynamoDB containing the game name
-    src: item.img_link, // You can use a default image or item.image if you have image data in your DynamoDB
-    link: `/${item.name}`, // You can use item.id or any other unique identifier for the link
+    title: item.name, 
+    src: item.img_link, 
+    link: `/${item.name}`, 
     neutral: item.before_neutral,
     positive: item.before_pos,
     negative: item.before_negative,
-    description: item.description
+    description: item.description,
+    metacritic: item.metacritic
   }));
 
   /*[

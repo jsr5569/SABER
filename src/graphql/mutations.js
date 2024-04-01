@@ -13,6 +13,7 @@ export const createTodo = /* GraphQL */ `
       createdAt
       updatedAt
       __typename
+      metacritic
     }
   }
 `;
@@ -28,6 +29,7 @@ export const updateTodo = /* GraphQL */ `
       createdAt
       updatedAt
       __typename
+      metacritic
     }
   }
 `;
