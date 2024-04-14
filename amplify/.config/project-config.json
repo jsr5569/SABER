@@ -13,7 +13,7 @@
   },
   "providers": [
     "awscloudformation"
-  ]
+  ],
   "artifacts": {
     "baseDirectory": "src",
     "files": "**/*"
