@@ -1,5 +1,4 @@
-projectName: SABER
-version: 3.1
+version: 1
 frontend:
   phases:
     preBuild:
