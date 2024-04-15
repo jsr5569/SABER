@@ -8,7 +8,6 @@ frontend:
     build:
       commands:
         - npm run-script build
-        - npm run-script start
   artifacts:
     baseDirectory: src
     files:
@@ -16,4 +15,5 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+
 
